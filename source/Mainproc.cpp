@@ -7,12 +7,12 @@
 using namespace std;
 
 
-#include "../include/GlobalVariables.h"
-#include "../include/Sys_file.h"
-#include "../include/ParType.h"
-#include "../include/ParFile.h"
-#include "../include/Optimization.h"
-#include "../include/Output.h"
+#include "GlobalVariables.h"
+#include "Sys_file.h"
+#include "ParType.h"
+#include "ParFile.h"
+#include "Optimization.h"
+#include "Output.h"
 
 
 

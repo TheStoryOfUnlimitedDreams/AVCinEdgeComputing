@@ -133,7 +133,6 @@ public:
 	double Qmin;				 //输出无功功率下限 kVar
 	double Qmax;				 //输出无功功率上限 kVar
 	double Smax;				 //输出视在功率上限 kVA
-	double Pf;					 //功率因数
 	int Type_DG;				 //分布式电源类型 1：光伏 2：风机
 	int Curve_DG;				 //分布式电源时序曲线编号
 	int TakePart;                //参与调节类型 0：不参与 1：参与调节

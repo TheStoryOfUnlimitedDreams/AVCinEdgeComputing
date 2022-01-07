@@ -1,8 +1,8 @@
 #include "math.h"
 
-#include "..\include\GlobalVariables.h"
-#include "..\include\ParType.h"
-#include "..\include\Output.h"
+#include "GlobalVariables.h"
+#include "ParType.h"
+#include "Output.h"
 
 COutput::COutput()
 {

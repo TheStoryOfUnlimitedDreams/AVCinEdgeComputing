@@ -6,10 +6,10 @@
 
 
 #include "GlobalVariables.h"
-#include "../include/Optimization.h"
-#include "../include/ParType.h"
-#include "../include/ParFile.h"
-#include "../include/Output.h"
+#include "Optimization.h"
+#include "ParType.h"
+#include "ParFile.h"
+#include "Output.h"
 
 
 Optimization::Optimization()
@@ -153,13 +153,40 @@ void Optimization::NodeOrder()
 		}
 	}
 
+	//printf("l=%d   s=%d\n", l,s);
+	//for (int i = 0; i <= (pRuntime->maxBus + 1) - 1; i++)
+	//{
+	//	for (int j = 0; j <= pRuntime->maxBus - 1; j++)
+	//	{
+	//		//printf("Queue[%d][%d] = %d", i ,j ,Queue[i][j]);
+	//		printf("%d   ", Queue[i][j]);
+	//	}
+	//	printf("\n");
+	//}
+
+	//printf("*******************************************\n");
+	//for (int j = 0; j <= pRuntime->maxBus - 1; j++)
+	//{
+	//	//printf("Queue[%d][%d] = %d", i ,j ,Queue[i][j]);
+	//	printf("%d   ", Queue2[j]);
+	//}
+	//printf("\n");
+
+	//printf("s = %d   \n", s);
+	//printf("pRuntime->maxBus = %d   \n", pRuntime->maxBus);
+
 	for (int j = 0; j <= pRuntime->maxBus - 1; j++)//Queue行
 	{
 		l = 0;
+
+		//printf("*Queue[j]=%d   j=%d\n", *Queue[j], j);
+
 		if (*Queue[j] != 0)
 		{
 			for (int i = 0; i <= pRuntime->maxBus - 1; i++)//Queue列
 			{
+				//printf("s = %d\n", s);
+
 				if (Queue[j][i] != 0)
 				{
 					//因为存在等效线路 所以原拓扑连接关系发生变化 需要使用真实元件的连接关系进行判断
@@ -184,8 +211,8 @@ void Optimization::NodeOrder()
 									l++;
 									Queue2[s] = pLine[k].EndNod;
 									s++;
+									//printf("s = %d\n", s);
 								}
-
 							}
 
 							if (pLine[k].EndNod == Queue[j][i])//找到尾节点是该节点的线路
@@ -274,6 +301,9 @@ void Optimization::NodeOrder()
 	//	printf("%d   ", Queue2[j]);
 	//}
 	//printf("\n");
+
+
+	//printf("s = %d\n", s);
 
 
 	int k2 = 0;
@@ -457,7 +487,7 @@ void Optimization::BacForSweep()
 			NodePowerP[i][j] = 0;
 			NodePowerQ[i][j] = 0;
 			NodePowerP_iter[i][j] = 0;
-			NodePowerP_iter[i][j] = 0;
+			NodePowerQ_iter[i][j] = 0;
 		}
 	}
 	for (int i = 0; i < pRuntime->maxBus; i++)//ACBus+DCBus

@@ -1,9 +1,9 @@
 
 #include "math.h"
-#include "../include/Sys_file.h"
-#include "../include/GlobalVariables.h"
-#include "../include/ParFile.h"
-#include "../include/ParType.h"
+#include "Sys_file.h"
+#include "GlobalVariables.h"
+#include "ParFile.h"
+#include "ParType.h"
 
 
 C_ParFile::C_ParFile()//构造函数定义
@@ -440,9 +440,9 @@ int C_ParFile::GetCaseFileParInfor()
 	pFcase->FGetLine();
 	while (pFcase->ms_Str[0] != 'E') 
 	{
-		DataRead = sscanf(pFcase->ms_Str, "%d%d%lf%lf%lf%lf%lf%lf%lf%lf%d%d%d",
+		DataRead = sscanf(pFcase->ms_Str, "%d%d%lf%lf%lf%lf%lf%lf%lf%d%d%d",
 			&Id_DG_R, &ConNod_DG_R, &Porg_R, &Qorg_R,
-			&Pmin_R, &Pmax_R, &Qmin_R, &Qmax_R, &Smax_R, &Pf_R,
+			&Pmin_R, &Pmax_R, &Qmin_R, &Qmax_R, &Smax_R,
 			&Type_DG_R, &Curve_DG_R, &TakePart_R);
 
 		pDG[pRuntime->nDG].Id_DG = Id_DG_R;
@@ -454,7 +454,6 @@ int C_ParFile::GetCaseFileParInfor()
 		pDG[pRuntime->nDG].Qmin = Qmin_R;
 		pDG[pRuntime->nDG].Qmax = Qmax_R;
 		pDG[pRuntime->nDG].Smax = Smax_R;
-		pDG[pRuntime->nDG].Pf = Pf_R;
 		pDG[pRuntime->nDG].Type_DG = Type_DG_R;
 		pDG[pRuntime->nDG].Curve_DG = Curve_DG_R;
 		pDG[pRuntime->nDG].TakePart = TakePart_R;

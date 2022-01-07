@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "../include/ParType.h"
+#include "ParType.h"
 
 //定义各元件类的构造函数
 CContrData::CContrData()
